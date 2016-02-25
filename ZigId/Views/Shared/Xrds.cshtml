@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+@*
+This XRDS view is used for both the OP identifier and the user identity pages.
+Only a couple of conditional checks are required to share the view, but sharing the view
+makes it very easy to ensure that all the Type URIs that this server supports are included
+for all XRDS discovery.
+*@
+<xrds:xrds xmlns:xrds="xri://$xrds"
+           xmlns:openid="http://openid.net/xmlns/1.0"
+           xmlns="xri://$xrd*($v*2.0)">
+    <xrd>
+        <service priority="10">
+            @if (ViewData["OPIdentifier"] != null)
+            {
+                <type>http://specs.openid.net/auth/2.0/server</type>
+            }
+            else
+            {
+                <type>http://specs.openid.net/auth/2.0/signon</type>
+            }
+            <type>http://openid.net/extensions/sreg/1.1</type>
+            <type>http://axschema.org/contact/email</type>
+
+            @*
+                Add these types when and if the Provider supports the respective aspects of the UI extension.
+                <type>http://specs.openid.net/extensions/ui/1.0/mode/popup</type>
+                <type>http://specs.openid.net/extensions/ui/1.0/lang-pref</type>
+                <type>http://specs.openid.net/extensions/ui/1.0/icon</type>*@
+            <uri>@(new Uri(Request.Url, Response.ApplyAppPathModifier("~/OpenId/Provider")))</uri>
+        </service>
+        @if (ViewData["OPIdentifier"] == null)
+        {
+            <service priority="20">
+                <type>http://openid.net/signon/1.0</type>
+                <type>http://openid.net/extensions/sreg/1.1</type>
+                <type>http://axschema.org/contact/email</type>
+                <uri>@(new Uri(Request.Url, Response.ApplyAppPathModifier("~/OpenId/Provider")))</uri>
+            </service>
+        }
+    </xrd>
+</xrds:xrds>
