@@ -49,9 +49,9 @@ namespace ZigId.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Posta elettronica")]
+        [Display(Name = "Username")]
         [EmailAddress]
-        public string Email { get; set; }
+        public string Username { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

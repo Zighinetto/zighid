@@ -75,7 +75,7 @@ namespace ZigId.Controllers
 
             // Questa opzione non calcola il numero di tentativi di accesso non riusciti per il blocco dell'account
             // Per abilitare il conteggio degli errori di password per attivare il blocco, impostare shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
