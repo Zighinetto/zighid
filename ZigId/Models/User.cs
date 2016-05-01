@@ -1,47 +1,17 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Web;
-using ZigId.Code;
 
 namespace ZigId.Models
 {
-    /// <summary>
-    /// @djechelon: dispose asap
-    /// </summary>
-    internal class User
+    public class User:IdentityUser
     {
-        internal static Uri ClaimedIdentifierBaseUri
+        public User()
         {
-            get { return Util.GetAppPathRootedUri("user/"); }
+            
         }
 
-        internal static Uri GetClaimedIdentifierForUser(string username)
-        {
-            if (string.IsNullOrEmpty(username))
-            {
-                throw new ArgumentNullException("username");
-            }
-
-            return new Uri(ClaimedIdentifierBaseUri, username.ToLowerInvariant());
-        }
-
-        internal static string GetUserFromClaimedIdentifier(Uri claimedIdentifier)
-        {
-            Regex regex = new Regex(@"/user/([^/\?]+)");
-            Match m = regex.Match(claimedIdentifier.AbsoluteUri);
-            if (!m.Success)
-            {
-                throw new ArgumentException();
-            }
-
-            return m.Groups[1].Value;
-        }
-
-        internal static Uri GetNormalizedClaimedIdentifier(Uri uri)
-        {
-            return GetClaimedIdentifierForUser(GetUserFromClaimedIdentifier(uri));
-        }
     }
 }

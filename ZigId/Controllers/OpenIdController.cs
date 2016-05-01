@@ -12,6 +12,7 @@ using DotNetOpenAuth.OpenId.Extensions.SimpleRegistration;
 using DotNetOpenAuth.OpenId.Provider;
 using DotNetOpenAuth.OpenId.Provider.Behaviors;
 using ZigId.Code;
+using ZigId.ViewModels;
 using DotNetOpenAuth.Messaging;
 using System.Net;
 
@@ -184,7 +185,7 @@ namespace ZigId.Controllers
             {
                 if (authReq.IsDirectedIdentity)
                 {
-                    authReq.LocalIdentifier = Models.User.GetClaimedIdentifierForUser(User.Identity.Name);
+                    authReq.LocalIdentifier = ViewModels.User.GetClaimedIdentifierForUser(User.Identity.Name);
                 }
 
                 if (!authReq.IsDelegatedIdentifier)
@@ -317,7 +318,7 @@ namespace ZigId.Controllers
                 return false;
             }
 
-            Uri userLocalIdentifier = Models.User.GetClaimedIdentifierForUser(User.Identity.Name);
+            Uri userLocalIdentifier = ViewModels.User.GetClaimedIdentifierForUser(User.Identity.Name);
 
             // Assuming the URLs on the web server are not case sensitive (on Windows servers they almost never are),
             // and usernames aren't either, compare the identifiers without case sensitivity.

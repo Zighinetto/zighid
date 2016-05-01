@@ -1,0 +1,15 @@
+﻿<appIdentities passwordHashAlgorithm="bcrypt">
+  <user name="test" passwordHashed="AAABBBCCC" email="test@zighinetto.org">
+    <profile> <!-- OpenID Standard Registration 1.0 -->
+      <nickname>Test Account</nickname>
+      <!--<email>test@zighinetto.org</email>-->
+      <fullname>Mr. Test</fullname>
+      <dob>1970-01-01</dob>
+      <gender>F</gender>
+      <postcode>20110</postcode>
+      <country>UK</country>
+      <language>IT</language>
+      <Timezone>Europe/Rome</Timezone>
+    </profile>
+  </user>
+</appIdentities>
