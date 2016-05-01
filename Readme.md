@@ -15,7 +15,7 @@ It is just a .NET clone of [phpMyId](https://github.com/sole/phpMyID) that adds 
  - Because phpMyId does not support two-factor authentication
  - Because author :cupid: ASP.NET
  - Because author is affected by the [Not Invented Here Syndrome](https://en.wikipedia.org/wiki/Not_invented_here)
- - Maybe because author has lots of spare time? No :sad:
+ - Maybe because author has lots of spare time? No :cry:
 
 Really, since phpMyId provides only password authentication, I have two options: one is to use a strong password that can be only copied&pasted from KeePass 
 (or written to a [post it](http://thedailywtf.com/articles/Security-by-PostIt) on the screen) I chose to write my own provider. The point is that the *password*
@@ -23,6 +23,8 @@ could still be a weaker password but must be backed by a stronger security eleme
 (this may change though I have no reason to, at the moment)
 
 ##Kudos
+The entire project is widely and clearly based on DotNetOpenAuth's sample MVC project. I have *copied* a large part of their code.
+
 The design is not mine. I just grabbed a [free template](http://startbootstrap.com/template-overviews/stylish-portfolio/) from Bootstrap, for which all the credit goes to the author.
 If you ever wanted to fork this project you could change the entire template in the master page. Feel free to make a clone.
 
