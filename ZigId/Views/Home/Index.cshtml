@@ -1,32 +1,32 @@
-﻿@using ZigId.ViewModels
-@model LoginViewModel
+﻿@model ZigId.ViewModels.LoginViewModel
 @{
     ViewBag.Title = "Home Page";
 }
 
 @section Header {
     <link rel="openid.server" href="@Url.Action("Index","Index")" />
-    <link rel="openid.delegate" href="https://www.zighinetto.org/djechelon/index.php" />
+    <link rel="openid.delegate" href="@Url.Action("Provider","OpenId")" />
 }
 
 @section Scripts{
 
-    <section id="login" class="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-4 text-center">
-                    <div class="container">
-                        <i class="fa fa-smile-o fa-5x"></i>
-                    </div> <!-- /container -->
-                </div>
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
+    
 
 }
 
+<section id="smile" class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4 text-center">
+                <div class="container">
+                    <i class="fa fa-smile-o fa-5x"></i>
+                </div> <!-- /container -->
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
 
 
 @*
