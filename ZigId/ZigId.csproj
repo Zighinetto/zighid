@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevOne.Security.Cryptography.BCrypt, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.1.0.0.0\lib\DevOne.Security.Cryptography.BCrypt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DotNetOpenAuth.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d0acff3d13b42a9d, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetOpenAuth.Core.5.0.0-alpha3\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
       <Private>True</Private>
@@ -129,6 +133,10 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="TwoStepsAuthenticator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TwoStepsAuthenticator.1.0.1.1\lib\net45\TwoStepsAuthenticator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=2fc06f0d701809a7, processorArchitecture=MSIL">
       <HintPath>..\packages\Validation.2.0.2.13022\lib\portable-windows8+net40+sl5+windowsphone8\Validation.dll</HintPath>
       <Private>True</Private>
@@ -198,9 +206,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Code\AccountMembershipService.cs" />
     <Compile Include="Code\AnonymousIdentifierProvider.cs" />
-    <Compile Include="Code\Configuration\AppIdentitiesConfigurationSectionHandler.cs" />
+    <Compile Include="Code\ConfigurationMembershipService.cs" />
+    <Compile Include="Code\Configuration\ApplicationIdentityCollection.cs" />
+    <Compile Include="Code\Configuration\ZigIdConfigurationSection.cs" />
     <Compile Include="Code\Configuration\ApplicationIdentity.cs" />
     <Compile Include="Code\FormsAuthenticationService.cs" />
     <Compile Include="Code\IFormsAuthentication.cs" />

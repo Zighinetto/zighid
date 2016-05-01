@@ -8,10 +8,13 @@ namespace ZigId.Code
 {
     public interface IMembershipService
     {
+
         /// <summary>
-        /// Gets the length of the min password.
+        /// Creates a password hash at configuration time that will match the given plaintext password
         /// </summary>
-        int MinPasswordLength { get; }
+        /// <param name="password"></param>
+        /// <returns></returns>
+        string CreatePasswordHash(string password);
 
         /// <summary>
         /// Validates the user.
@@ -22,21 +25,18 @@ namespace ZigId.Code
         bool ValidateUser(string userName, string password);
 
         /// <summary>
-        /// Creates a new user account.
+        /// Determines if additional authentication is required
         /// </summary>
-        /// <param name="userName">Name of the user.</param>
-        /// <param name="password">The password.</param>
-        /// <param name="email">The email.</param>
-        /// <returns>The success or reason for failure of account creation.</returns>
-        MembershipCreateStatus CreateUser(string userName, string password, string email);
+        /// <param name="userName">User to authenticate</param>
+        /// <returns>Whether the user requires an additional OTP authentication via companion app</returns>
+        bool RequiresOtpAuthentication(string userName);
 
         /// <summary>
-        /// Changes the password for a user.
+        /// Validates the user against the OTP token.
         /// </summary>
         /// <param name="userName">Name of the user.</param>
-        /// <param name="oldPassword">The old password.</param>
-        /// <param name="newPassword">The new password.</param>
-        /// <returns>A value indicating whether the password change was successful.</returns>
-        bool ChangePassword(string userName, string oldPassword, string newPassword);
+        /// <param name="otpToken">The token.</param>
+        /// <returns>Whether the given token is correct for the user.</returns>
+        bool ValidateOtpToken(string userName, string otpToken);
     }
 }
