@@ -8,8 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using DotNetOpenAuth.OpenId.Behaviors;
 using DotNetOpenAuth.OpenId.Extensions.ProviderAuthenticationPolicy;
-using DotNetOpenAuth.OpenId.Extensions.SimpleRegistration;
-using DotNetOpenAuth.OpenId.Provider;
 using DotNetOpenAuth.OpenId.Provider.Behaviors;
 using ZigId.Code;
 using ZigId.ViewModels;
